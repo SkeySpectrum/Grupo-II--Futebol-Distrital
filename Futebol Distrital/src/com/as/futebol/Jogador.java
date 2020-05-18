@@ -98,6 +98,7 @@ public class Jogador extends Pessoa {
 
     // ----> equals()
 	
+	
 } //Class Jogador;
 
 

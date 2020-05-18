@@ -27,7 +27,6 @@ public class Arbitro extends Pessoa {
 		this.habilitacao.add(habilitacao);
 	} //addHabilitacao;
 
-
     // =======================================================
     // =================== CONSTRUTORES ======================
     // =======================================================
@@ -50,13 +49,11 @@ public class Arbitro extends Pessoa {
 		String resultado = "";
 		
 		resultado += "Arbitro Info:\n";
-		resultado += super.getNome();
-		resultado += super.getEmail();
-		resultado += super.getContacto();
-		resultado += super.getDataNascimento();
-		resultado += super.getNumeroCartaoCidadao();
-		
-		resultado += "\n";
+		resultado += super.getNome() + " | ";
+		resultado += super.getEmail() + " | ";
+		resultado += super.getContacto() + " | ";
+		resultado += super.getDataNascimento() + " | ";
+		resultado += super.getNumeroCartaoCidadao() + "\n";
 		
 		resultado += "Habilitacao:\n";
 		for (Habilitacao h : habilitacao) {
