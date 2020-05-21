@@ -59,7 +59,15 @@ public class Habilitacao {
     // =================== .COMPORTAMENTOS ===================
     // =======================================================
 
-
+	public String MostrarInformacao () {
+		String result = "";
+		
+		result += this.getTipo().toString() + " | ";
+		result += this.getNome() + " | ";
+		result += this.getDescricao() + "\n";
+		
+		return result;
+	} //MostrarInformacao;
 
     // =======================================================
     // ============== MÉTODOS COMPLEMENTARES =================

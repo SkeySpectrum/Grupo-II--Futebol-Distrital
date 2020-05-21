@@ -103,10 +103,12 @@ public class Equipa {
 		resultado += "Código: " + this.codigoIndentificador + "\n";
 		resultado += "Escalão: " + this.escalao + "\n\n";
 		
+		resultado += "Jogadores ("+ jogadores.size() + ")\n";
 		for(Jogador j : jogadores) {
 			resultado += j.MostrarInformacao();
 		}
 		
+		resultado += "Treinadores ("+ treinadores.size() + ")\n";
 		for(Treinador t : treinadores) {
 			resultado += t.MostrarInformacao();
 		}

@@ -120,7 +120,60 @@ public class Clube {
     // =================== .COMPORTAMENTOS ===================
     // =======================================================
 
+	public int CalcularNumeroDeJogadores () {
+		int aux = 0;
+		
+		for (Equipa equipa : equipas) {
+			aux += equipa.getJogadores().size();
+		}
+		
+		return aux;
+		
+	} //CalcularNumeroDeJogadores;
+	
+	public int CalcularNumeroDeTreinadores () {
+		int aux = 0;
+		
+		for (Equipa equipa : equipas) {
+			aux += equipa.getTreinadores().size();
+		}
+		
+		return aux;
+		
+	} //CalcularNumeroDeTreinadores;
+	
+	
+  	public boolean EliminarEquipa (int codigo) {
+		int aux = ProcurarEquipaPorCodigo(codigo);
+		
+		if (aux == -1)
+			return false;
+		
+		equipas.remove(aux);
+		return true;
+		
+	} //EliminarEquipa;
 
+	public boolean EditarEquipa (int codigo, Equipa equipa) {
+		int aux = ProcurarEquipaPorCodigo(codigo);
+		
+		if (aux == -1)
+			return false;
+		
+		equipas.set(aux, equipa);
+		return true;
+		
+	} //EditarEquipa;
+	
+	private int ProcurarEquipaPorCodigo (int codigo) {
+		
+		for (int i = 0; i < equipas.size(); i++) {
+			if (equipas.get(i).getCodigoIndentificador() == codigo)
+				return i;
+		}
+		
+		return -1;
+	} //ProcurarEquipaPorCodigo;
 
     // =======================================================
     // ============== MÉTODOS COMPLEMENTARES =================

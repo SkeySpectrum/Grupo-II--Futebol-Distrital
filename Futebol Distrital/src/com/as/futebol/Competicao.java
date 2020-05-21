@@ -102,8 +102,100 @@ public class Competicao {
     // =================== .COMPORTAMENTOS ===================
     // =======================================================
 
+	public String MostrarEquipas () {
+		String result = "Equipas: (\" + equipas.size() + \") \\n\"";
+		
+		for(Equipa equipa : equipas) {
+			result += equipa.getNome() + " | ";
+			result += "Jogador: (" + equipa.getJogadores().size() + ") | ";
+			result += "Treinador: (" + equipa.getTreinadores().size() + ") | ";
+			result += equipa.getEscalao().toString() + "\n\n";
+		}
+		
+		return result;
+		
+	} //MostrarEquipas;
+	
+	public String MostrarJogosPorJornada (int jornada) {
+		String result = "";
+		
+		for (int i = 0; i < jogos.size(); i++) {
+			if (jogos.get(i).getJornada() == jornada) {
+				result += jogos.get(i).MostrarInformacao();
+			}
+		}
+		
+		return result;
+		
+	} //MostrarJogosPorJornada;
+	
+  	public boolean EliminarEquipa (int codigo) {
+		int aux = ProcurarEquipaPorCodigo(codigo);
+		
+		if (aux == -1)
+			return false;
+		
+		equipas.remove(aux);
+		return true;
+		
+	} //EliminarEquipa;
 
+	public boolean EditarEquipa (int codigo, Equipa equipa) {
+		int aux = ProcurarEquipaPorCodigo(codigo);
+		
+		if (aux == -1)
+			return false;
+		
+		equipas.set(aux, equipa);
+		return true;
+		
+	} //EditarEquipa;
+	
+	private int ProcurarEquipaPorCodigo (int codigo) {
+		
+		for (int i = 0; i < equipas.size(); i++) {
+			if (equipas.get(i).getCodigoIndentificador() == codigo)
+				return i;
+		}
+		
+		return -1;
+	} //ProcurarEquipaPorCodigo;
+	
+	
+	public boolean EliminarJogo (int codigo) {
+		int aux = ProcurarEquipaPorCodigo(codigo);
+		
+		if (aux == -1)
+			return false;
+		
+		equipas.remove(aux);
+		return true;
+		
+	} //EliminarJogo;
 
+	public boolean EditarJogo (int codigo, Jogo jogo) {
+		int aux = ProcurarJogoPorCodigo(codigo);
+		
+		if (aux == -1)
+			return false;
+		
+		jogos.set(aux, jogo);
+		return true;
+		
+	} //EditarJogo;
+	
+	private int ProcurarJogoPorCodigo (int codigo) {
+		
+		for (int i = 0; i < jogos.size(); i++) {
+			if (jogos.get(i).getCodigoIndentificador() == codigo)
+				return i;
+		}
+		
+		return -1;
+	} //ProcurarJogoPorCodigo;
+	
+	
+	//private int 
     // =======================================================
     // ============== MÉTODOS COMPLEMENTARES =================
     // =======================================================

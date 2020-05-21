@@ -50,24 +50,22 @@ public class Treinador extends Pessoa {
     // =======================================================
 
 	public String MostrarInformacao () {
-		String resultado = "";
+		String result = "";
 		
-		resultado += "Treinador " + super.getNome() + ":\n";
-		resultado += "Altura: " + super.getEmail() + "\n";
-		resultado += "Peso: " + super.getContacto() + "\n";
-		resultado += "Data Nascimento: " + super.getDataNascimento() + "\n";
-		resultado += "Numero Cartão Cidadão: " + super.getNumeroCartaoCidadao() + "\n\n";
+		result += "Nome: " + super.getNome() + "\n";
+		result += "Email: " + super.getEmail() + "\n";
+		result += "Contacto: " + super.getContacto() + "\n";
+		result += "Data Nascimento: " + super.getDataNascimento() + "\n";
+		result += "Cartão Cidadão: " + super.getNumeroCartaoCidadao() + "\n\n";
 		
-		resultado += "Habilitacao:\n";
+		result += "Habilitacao:\n";
 		for (Habilitacao h : habilitacao) {
-			resultado += h.getTipo().toString() + " | ";
-			resultado += h.getNome() + " | ";
-			resultado += h.getDescricao() + "\n";
+			result += h.MostrarInformacao();
 		}
 		
-		resultado += "\n\n";
+		result += "\n\n";
 		
-		return resultado;
+		return result;
 		
 	} //MostrarInformacao;
 
