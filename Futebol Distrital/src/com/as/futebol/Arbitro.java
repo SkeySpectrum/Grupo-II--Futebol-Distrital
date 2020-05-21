@@ -31,6 +31,11 @@ public class Arbitro extends Pessoa {
     // =================== CONSTRUTORES ======================
     // =======================================================
 
+	//Construtor sem parametros;
+	public Arbitro() {
+		
+	} //Construtor Arbitro;
+	
 	//Construtor com parametros;
 	public Arbitro(String nome, Date dataNascimento, int contacto, String email, int numeroCartaoCidadao, Habilitacao habilitacao) {
 		super.setNome(nome);
@@ -46,24 +51,20 @@ public class Arbitro extends Pessoa {
     // =======================================================
 
 	public String MostrarInformacao () {
-		String resultado = "";
+		String result = "";
 		
-		resultado += "Arbitro Info:\n";
-		resultado += super.getNome() + " | ";
-		resultado += super.getEmail() + " | ";
-		resultado += super.getContacto() + " | ";
-		resultado += super.getDataNascimento() + " | ";
-		resultado += super.getNumeroCartaoCidadao() + "\n";
+		result += "Nome: " + super.getNome() + "\n";
+		result += "Email: " + super.getEmail() + "\n";
+		result += "Contacto: " + super.getContacto() + "\n";
+		result += "Data Nascimento: " + super.getDataNascimento() + "\n";
+		result += "Cartão Cidadão: " + super.getNumeroCartaoCidadao() + "\n\n";
 		
-		resultado += "Habilitacao:\n";
+		result += "Habilitacao:\n";
 		for (Habilitacao h : habilitacao) {
-			resultado += h.getTipo().toString() + " | ";
-			resultado += h.getNome() + " | ";
-			resultado += h.getDescricao() + " | ";
-			resultado += "\n";
+			result += h.MostrarInformacao();
 		}
 		
-		return resultado;
+		return result;
 		
 	} //MostrarInformacao;
 

@@ -47,7 +47,12 @@ public class Habilitacao {
     // =================== CONSTRUTORES ======================
     // =======================================================
 
-	//Construtor com parametros
+	//Construtor sem parametros;
+	public Habilitacao() {
+
+	} //Construtor Habilitacao;
+	
+	//Construtor com parametros;
 	public Habilitacao(String nome, String descricao, TipoHabilitacao tipo) {
 		super();
 		this.nome = nome;
@@ -59,7 +64,15 @@ public class Habilitacao {
     // =================== .COMPORTAMENTOS ===================
     // =======================================================
 
-
+	public String MostrarInformacao () {
+		String result = "";
+		
+		result += this.getTipo().toString() + " | ";
+		result += this.getNome() + " | ";
+		result += this.getDescricao() + "\n";
+		
+		return result;
+	} //MostrarInformacao;
 
     // =======================================================
     // ============== MÉTODOS COMPLEMENTARES =================

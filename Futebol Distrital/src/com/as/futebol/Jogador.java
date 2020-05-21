@@ -76,7 +76,7 @@ public class Jogador extends Pessoa {
 	public String MostrarInformacao () {
 		String resultado = "";
 		
-		resultado += "Jogador " + super.getNome() + ":\n";
+		resultado += "Nome: " + super.getNome() + "\n";
 		resultado += "Email: " + super.getEmail() + "\n";
 		resultado += "Contacto: " + super.getContacto() + "\n";
 		resultado += "Data Nascimento: " + super.getDataNascimento() + "\n";
