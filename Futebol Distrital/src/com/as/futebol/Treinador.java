@@ -31,8 +31,9 @@ public class Treinador extends Pessoa {
     // =================== CONSTRUTORES ======================
     // =======================================================
 
+	//Construtor sem parametros;
 	public Treinador () {
-		
+		super();
 	} //Construtor Treinador;
 	
 	//Construtor com parametros;

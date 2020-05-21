@@ -56,7 +56,7 @@ public class Equipa {
 		this.jogadores.set(index, jogador);
 	} //setJogadores;
 	
-	public void addJogadores(Jogador jogador) {
+	public void addJogador(Jogador jogador) {
 		this.jogadores.add(jogador);
 	} //addJogadores;
 	
@@ -69,7 +69,7 @@ public class Equipa {
 		this.treinadores.set(index, treinador);
 	} //setTreinadores;
 	
-	public void addTreinadores(Treinador treinador) {
+	public void addTreinador(Treinador treinador) {
 		this.treinadores.add( treinador);
 	} //addTreinadores;
 
@@ -83,13 +83,11 @@ public class Equipa {
 	} //Construtor Equipa;
 	
 	//Construtor com parametros;
-	public Equipa(int codigoIndentificador, String nome, Escalao escalao, List<Jogador> jogadores, List<Treinador> treinadores) {
+	public Equipa(int codigoIndentificador, String nome, Escalao escalao) {
 		super();
-		this.codigoIndentificador = codigoIndentificador;
-		this.nome = nome;
-		this.escalao = escalao;
-		this.jogadores = jogadores;
-		this.treinadores = treinadores;
+		this.setCodigoIndentificador(codigoIndentificador);
+		this.setNome(nome);
+		this.setEscalao(escalao);
 	} //Construtor Equipa;
 
     // =======================================================
@@ -99,19 +97,11 @@ public class Equipa {
 	public String MostrarInformacao () {
 		String resultado = "";
 		
-		resultado += "Equipa: " + this.nome + "\n";
-		resultado += "Código: " + this.codigoIndentificador + "\n";
-		resultado += "Escalão: " + this.escalao + "\n\n";
-		
-		resultado += "Jogadores ("+ jogadores.size() + ")\n";
-		for(Jogador j : jogadores) {
-			resultado += j.MostrarInformacao();
-		}
-		
-		resultado += "Treinadores ("+ treinadores.size() + ")\n";
-		for(Treinador t : treinadores) {
-			resultado += t.MostrarInformacao();
-		}
+		resultado += "Equipa: " + this.getNome() + "\n";
+		resultado += "Código: " + this.getCodigoIndentificador() + "\n";
+		resultado += "Escalão: " + this.getEscalao() + "\n";
+		resultado += "Jogadores (" + this.getJogadores().size() + ") \n";
+		resultado += "Treinadores (" + this.getTreinadores().size() + ") \n\n";
 		
 		return resultado;
 		

@@ -31,6 +31,11 @@ public class Arbitro extends Pessoa {
     // =================== CONSTRUTORES ======================
     // =======================================================
 
+	//Construtor sem parametros;
+	public Arbitro() {
+		
+	} //Construtor Arbitro;
+	
 	//Construtor com parametros;
 	public Arbitro(String nome, Date dataNascimento, int contacto, String email, int numeroCartaoCidadao, Habilitacao habilitacao) {
 		super.setNome(nome);

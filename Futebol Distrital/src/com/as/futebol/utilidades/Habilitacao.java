@@ -47,7 +47,12 @@ public class Habilitacao {
     // =================== CONSTRUTORES ======================
     // =======================================================
 
-	//Construtor com parametros
+	//Construtor sem parametros;
+	public Habilitacao() {
+
+	} //Construtor Habilitacao;
+	
+	//Construtor com parametros;
 	public Habilitacao(String nome, String descricao, TipoHabilitacao tipo) {
 		super();
 		this.nome = nome;

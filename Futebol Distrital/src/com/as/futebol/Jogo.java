@@ -91,23 +91,36 @@ public class Jogo {
     // =================== CONSTRUTORES ======================
     // =======================================================
 
+	//Construtor sem parametro;
+	public Jogo () {
+		
+	} //Construtor Jogo;
 
-
+	//Construtor com parametro;
+	public Jogo(int codigoIndentificador, Equipa equipaVisitada, Equipa equipaVisitante, Date data, int jornada,
+			List<Arbitro> arbitros) {
+		super();
+		this.setCodigoIndentificador(codigoIndentificador);
+		this.setEquipaVisitada(equipaVisitada);
+		this.setEquipaVisitante(equipaVisitante);
+		this.setData(data); 
+		this.setJornada(jornada);
+		this.arbitros = arbitros;
+	} //Construtor Jogo;
+	
     // =======================================================
     // =================== .COMPORTAMENTOS ===================
     // =======================================================
 
 	public String MostrarInformacao () {
 		String result = "";
-		
-		result += getCodigoIndentificador() + " | ";
-		result += getJornada() + " | ";
-		result += getData() + " | ";
-		result += getArbitros() + " | ";
-		result += getEquipaVisitada().getNome() + " | ";
-		result += getEquipaVisitante().getNome() + " | ";
-		result += getGoloEquipaVisitada() + " | ";
-		result += getGoloEquipaVisitante() + " | ";
+
+		result += "Jornada: " + this.getJornada() + "\n";
+		result += "Codigo: " + this.getCodigoIndentificador() + "\n";
+		result += "Data: " + this.getData() + "\n";
+		result += "Arbitros (" + this.getArbitros().size() + ") \n";
+		result += "Equipa Visitada: " 	+ this.getEquipaVisitada().getNome() 	+ " | " + this.getGoloEquipaVisitada() 	+ "\n";
+		result += "Equipa Visitante: " 	+ this.getEquipaVisitante().getNome() 	+ " | " + this.getGoloEquipaVisitante() + "\n\n";
 		
 		return result;
 		
@@ -147,10 +160,7 @@ public class Jogo {
 	} //ProcurarArbitroPorCodigo;
 	
 	
-	void AdicionarGolo (int codigo) {
-		
-		if (this.getEquipaVisitada().getCodigoIndentificador() != codigo || this.getEquipaVisitante().getCodigoIndentificador() != codigo)
-			return;
+	public void AdicionarGolo (int codigo) {
 		
 		if (this.getEquipaVisitada().getCodigoIndentificador() == codigo)
 			this.goloEquipaVisitada += 1;
@@ -160,10 +170,7 @@ public class Jogo {
 		
 	} //AdicionarGolo;
 	
-	void RemoverGolo (int codigo) {
-		
-		if (this.getEquipaVisitada().getCodigoIndentificador() != codigo || this.getEquipaVisitante().getCodigoIndentificador() != codigo)
-			return;
+	public void RemoverGolo (int codigo) {
 		
 		if (this.getEquipaVisitada().getCodigoIndentificador() == codigo)
 			this.goloEquipaVisitada -= 1;
