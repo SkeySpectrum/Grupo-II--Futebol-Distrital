@@ -1,14 +1,11 @@
 package com.as.futebol;
 
 import java.util.*;
-
-import com.as.futebol.Equipa.Escalao;
+import com.as.futebol.Utilidade.*;
 
 public class Competicao {
 
-    // =======================================================
-    // ===================== ATRIBUTOS =======================
-    // =======================================================
+// ===================== ATRIBUTOS =======================
 
 	private int codigoIdentificador;
 	private String nome;
@@ -18,9 +15,7 @@ public class Competicao {
 	private List<Equipa> equipas = new ArrayList<Equipa>();
 	private List<Jogo> jogos = new ArrayList<Jogo>();
 	
-    // =======================================================
-    // ============ ACESSORES e MODIFICADORES ================
-    // =======================================================
+// ============ ACESSORES e MODIFICADORES ================
 
 	public int getCodigoIdentificador() {
 		return codigoIdentificador;
@@ -116,9 +111,7 @@ public class Competicao {
 		this.jogos.add(jogo);
 	} //addJogo;
 
-    // =======================================================
     // =================== CONSTRUTORES ======================
-    // =======================================================
 
 	//Construtor sem parametros;
 	public Competicao () {
@@ -134,10 +127,8 @@ public class Competicao {
 		this.setFim(fim);
 		this.setEscalao(escalao);
 	}//Construtor Competicao;
-	
-    // =======================================================
-    // =================== .COMPORTAMENTOS ===================
-    // =======================================================
+
+// =================== COMPORTAMENTOS ===================
 
 	public String MostrarInformacao () {
 		String result = "";
@@ -260,15 +251,16 @@ public class Competicao {
 		
 		return false;
 	} //VerificarEquipa;
-	
-	//private int 
-    // =======================================================
-    // ============== MÉTODOS COMPLEMENTARES =================
-    // =======================================================
+
+
+// ============== MÉTODOS COMPLEMENTARES =================
 
     // ----> toString()
-
-    // ----> equals()
+	@Override
+	public String toString() {
+		return "Competicao [codigoIdentificador=" + codigoIdentificador + ", nome=" + nome + ", inicio=" + inicio
+				+ ", fim=" + fim + ", escalao=" + escalao + ", equipas=" + equipas + ", jogos=" + jogos + "]";
+	}//Override toString;
 	
 } //Class Competicao;
 

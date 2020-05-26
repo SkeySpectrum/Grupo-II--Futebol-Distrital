@@ -1,25 +1,17 @@
 package com.as.futebol;
 
-import java.util.Date;
-
-import com.as.futebol.utilidades.*;
+import java.util.*;
+import com.as.futebol.Utilidade.*;
 
 public class Jogador extends Pessoa {
 
-	public enum PePreferido { Esquerda, Direita } //Enum PePreferido;
-	public enum Posicao {Defesa, Avançado, GuardaRedes} //Enum Posicao;
-	
-    // =======================================================
-    // ===================== ATRIBUTOS =======================
-    // =======================================================
+// ===================== ATRIBUTOS =======================
 
 	private int numero;
 	private PePreferido pePreferido;
 	private Posicao posicao;
 
-    // =======================================================
-    // ============ ACESSORES e MODIFICADORES ================
-    // =======================================================
+// ============ ACESSORES e MODIFICADORES ================
 
 	public int getNumero() {
 		return numero;
@@ -47,11 +39,9 @@ public class Jogador extends Pessoa {
 		this.posicao = posicao;
 	} //setPosicao;
 
-    // =======================================================
-    // =================== CONSTRUTORES ======================
-    // =======================================================
+// =================== CONSTRUTORES ======================
 
-	//Construtor csemom parametros;
+	//Construtor com parametros;
 	public Jogador() {
 		
 	}//Construtor Jogador;
@@ -69,9 +59,7 @@ public class Jogador extends Pessoa {
 		this.numero = numero;
 	} //Construtor Jogador;
 
-    // =======================================================
-    // =================== .COMPORTAMENTOS ===================
-    // =======================================================
+// =================== .COMPORTAMENTOS ===================
 
 	public String MostrarInformacao () {
 		String resultado = "";
@@ -90,14 +78,16 @@ public class Jogador extends Pessoa {
 		
 	} //MostrarInformacao;
 
-    // =======================================================
-    // ============== MÉTODOS COMPLEMENTARES =================
-    // =======================================================
+// ============== MÉTODOS COMPLEMENTARES =================
 
     // ----> toString()
-
-    // ----> equals()
-	
+	@Override
+	public String toString() {
+		return "Jogador [numero=" + numero + ", pePreferido=" + pePreferido + ", posicao=" + posicao
+				+ ", getNumeroCartaoCidadao()=" + getNumeroCartaoCidadao() + ", getNome()=" + getNome()
+				+ ", getDataNascimento()=" + getDataNascimento() + ", getContacto()=" + getContacto() + ", getEmail()="
+				+ getEmail() + "]";
+	}//Override toString;
 	
 } //Class Jogador;
 

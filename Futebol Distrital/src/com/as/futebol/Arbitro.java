@@ -1,19 +1,14 @@
 package com.as.futebol;
 
-import com.as.futebol.utilidades.*;
 import java.util.*;
 
 public class Arbitro extends Pessoa {
 
-    // =======================================================
-    // ===================== ATRIBUTOS =======================
-    // =======================================================
+// ===================== ATRIBUTOS =======================
 
 	private List<Habilitacao> habilitacao = new ArrayList<Habilitacao>();
 
-    // =======================================================
-    // ============ ACESSORES e MODIFICADORES ================
-    // =======================================================
+// ============ ACESSORES e MODIFICADORES ================
 
 	public List<Habilitacao> getHabilitacao() {
 		return habilitacao;
@@ -27,9 +22,7 @@ public class Arbitro extends Pessoa {
 		this.habilitacao.add(habilitacao);
 	} //addHabilitacao;
 
-    // =======================================================
-    // =================== CONSTRUTORES ======================
-    // =======================================================
+// =================== CONSTRUTORES ======================
 
 	//Construtor sem parametros;
 	public Arbitro() {
@@ -46,9 +39,7 @@ public class Arbitro extends Pessoa {
 		this.habilitacao.add(habilitacao);
 	} //Construtor Arbitro;
 
-    // =======================================================
-    // =================== .COMPORTAMENTOS ===================
-    // =======================================================
+// =================== .COMPORTAMENTOS ===================
 
 	public String MostrarInformacao () {
 		String result = "";
@@ -68,13 +59,16 @@ public class Arbitro extends Pessoa {
 		
 	} //MostrarInformacao;
 
-    // =======================================================
-    // ============== MÉTODOS COMPLEMENTARES =================
-    // =======================================================
+
+// ============== MÉTODOS COMPLEMENTARES =================
 
     // ----> toString()
-
-    // ----> equals()
+	@Override
+	public String toString() {
+		return "Arbitro [habilitacao=" + habilitacao + ", getNumeroCartaoCidadao()=" + getNumeroCartaoCidadao()
+				+ ", getNome()=" + getNome() + ", getDataNascimento()=" + getDataNascimento() + ", getContacto()="
+				+ getContacto() + ", getEmail()=" + getEmail() + "]";
+	}//Override toString;
 	
 } //Class Arbitro;
 

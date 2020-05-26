@@ -1,19 +1,14 @@
 package com.as.futebol;
 
-import com.as.futebol.utilidades.*;
 import java.util.*;
 
 public class Treinador extends Pessoa {
 
-    // =======================================================
-    // ===================== ATRIBUTOS =======================
-    // =======================================================
+// ===================== ATRIBUTOS =======================
 
 	private List<Habilitacao> habilitacao = new ArrayList<Habilitacao>();;
 
-    // =======================================================
-    // ============ ACESSORES e MODIFICADORES ================
-    // =======================================================
+// ============ ACESSORES e MODIFICADORES ================
 
 	public List<Habilitacao> getHabilitacao() {
 		return habilitacao;
@@ -27,9 +22,7 @@ public class Treinador extends Pessoa {
 		this.habilitacao.add(habilitacao);
 	} //addHabilitacao;
 
-    // =======================================================
-    // =================== CONSTRUTORES ======================
-    // =======================================================
+// =================== CONSTRUTORES ======================
 
 	//Construtor sem parametros;
 	public Treinador () {
@@ -46,9 +39,7 @@ public class Treinador extends Pessoa {
 		this.habilitacao.add(habilitacao);
 	} //Construtor Treinador;
 
-    // =======================================================
-    // =================== .COMPORTAMENTOS ===================
-    // =======================================================
+// =================== .COMPORTAMENTOS ===================
 
 	public String MostrarInformacao () {
 		String result = "";
@@ -70,14 +61,17 @@ public class Treinador extends Pessoa {
 		
 	} //MostrarInformacao;
 
-    // =======================================================
-    // ============== MÉTODOS COMPLEMENTARES =================
-    // =======================================================
+
+// ============== MÉTODOS COMPLEMENTARES =================
 
     // ----> toString()
+	@Override
+	public String toString() {
+		return "Treinador [habilitacao=" + habilitacao + ", getNumeroCartaoCidadao()=" + getNumeroCartaoCidadao()
+				+ ", getNome()=" + getNome() + ", getDataNascimento()=" + getDataNascimento() + ", getContacto()="
+				+ getContacto() + ", getEmail()=" + getEmail() + "]";
+	} //Override toString;
 
-    // ----> equals()
-	
 } //Class Treinador;
 
 

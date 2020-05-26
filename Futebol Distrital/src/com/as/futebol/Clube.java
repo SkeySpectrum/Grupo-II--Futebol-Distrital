@@ -1,12 +1,9 @@
 package com.as.futebol;
 
-import com.as.futebol.Equipa.Escalao;
-
 import java.util.*;
+import com.as.futebol.Utilidade.*;
 
 public class Clube {
-
-	public enum CorEquipamento { Azul, Vermelho, Riscas, Outro }
 	
     // =======================================================
     // ===================== ATRIBUTOS =======================

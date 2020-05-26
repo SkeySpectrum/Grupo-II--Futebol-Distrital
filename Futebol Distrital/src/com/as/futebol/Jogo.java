@@ -4,9 +4,7 @@ import java.util.*;
 
 public class Jogo {
 
-    // =======================================================
-    // ===================== ATRIBUTOS =======================
-    // =======================================================
+// ===================== ATRIBUTOS =======================
 
 	private int codigoIndentificador;
 	private Equipa equipaVisitada;
@@ -17,9 +15,7 @@ public class Jogo {
 	private int jornada;
 	private List<Arbitro> arbitros = new ArrayList<Arbitro>();
 
-    // =======================================================
-    // ============ ACESSORES e MODIFICADORES ================
-    // =======================================================
+// ============ ACESSORES e MODIFICADORES ================
 
 	public int getCodigoIndentificador() {
 		return codigoIndentificador;
@@ -35,6 +31,11 @@ public class Jogo {
 	} //getEquipaVisitada;
 	
 	public void setEquipaVisitada(Equipa equipaVisitada) {
+		if (this.getEquipaVisitante() != null) {
+			if (this.getEquipaVisitante().getCodigoIndentificador() == equipaVisitada.getCodigoIndentificador())
+				throw new IllegalArgumentException("A equipa '" + equipaVisitada.getNome() + "' ja foi adicionada ao jogo '" + this.getCodigoIndentificador());
+		}
+			
 		this.equipaVisitada = equipaVisitada;
 	} //setEquipaVisitada;
 	
@@ -44,6 +45,11 @@ public class Jogo {
 	} //getEquipaVisitante;
 	
 	public void setEquipaVisitante(Equipa equipaVisitante) {
+		if (this.getEquipaVisitada() != null) {
+			if (this.getEquipaVisitada().getCodigoIndentificador() == equipaVisitante.getCodigoIndentificador())
+				throw new IllegalArgumentException("A equipa '" + equipaVisitada.getNome() + "' ja foi adicionada ao jogo '" + this.getCodigoIndentificador());
+		}
+		
 		this.equipaVisitante = equipaVisitante;
 	} //setEquipaVisitante;
 	
@@ -80,16 +86,20 @@ public class Jogo {
 	} //getArbitros;
 	
 	public void setArbitros(int index, Arbitro arbitro) {
+		if (ProcurarArbitroPorCodigo(arbitro.getNumeroCartaoCidadao()) != -1)
+			throw new IllegalArgumentException("O Arbitro '" + arbitro.getNome() + "' ja existe no jogo '" + this.getCodigoIndentificador());
+		
 		this.arbitros.set(index, arbitro);
 	} //setArbitros;
 
 	public void addArbitros(Arbitro arbitro) {
+		if (ProcurarArbitroPorCodigo(arbitro.getNumeroCartaoCidadao()) != -1)
+			throw new IllegalArgumentException("O Arbitro '" + arbitro.getNome() + "' ja existe no jogo '" + this.getCodigoIndentificador());
+		
 		this.arbitros.add(arbitro);
 	} //addArbitros;
 	
-    // =======================================================
-    // =================== CONSTRUTORES ======================
-    // =======================================================
+// =================== CONSTRUTORES ======================
 
 	//Construtor sem parametro;
 	public Jogo () {
@@ -108,24 +118,21 @@ public class Jogo {
 		this.arbitros = arbitros;
 	} //Construtor Jogo;
 	
-    // =======================================================
-    // =================== .COMPORTAMENTOS ===================
-    // =======================================================
+// =================== .COMPORTAMENTOS ===================
 
 	public String MostrarInformacao () {
 		String result = "";
 
-		result += "Jornada: " + this.getJornada() + "\n";
-		result += "Codigo: " + this.getCodigoIndentificador() + "\n";
-		result += "Data: " + this.getData() + "\n";
-		result += "Arbitros (" + this.getArbitros().size() + ") \n";
+		result += "Jornada: " 			+ this.getJornada() 					+ "\n";
+		result += "Codigo: " 			+ this.getCodigoIndentificador() 		+ "\n";
+		result += "Data: " 				+ this.getData() 						+ "\n";
+		result += "Arbitros (" 			+ this.getArbitros().size() 			+ ") \n";
 		result += "Equipa Visitada: " 	+ this.getEquipaVisitada().getNome() 	+ " | " + this.getGoloEquipaVisitada() 	+ "\n";
 		result += "Equipa Visitante: " 	+ this.getEquipaVisitante().getNome() 	+ " | " + this.getGoloEquipaVisitante() + "\n\n";
 		
 		return result;
 		
 	} //MostrarInformacao;
-
 	
   	public boolean EliminarArbitro (int codigo) {
 		int aux = ProcurarArbitroPorCodigo(codigo);
@@ -137,6 +144,7 @@ public class Jogo {
 		return true;
 		
 	} //EliminarArbitro;
+  	
 
 	public boolean EditarArbitro (int codigo, Arbitro arbitro) {
 		int aux = ProcurarArbitroPorCodigo(codigo);
@@ -148,6 +156,7 @@ public class Jogo {
 		return true;
 		
 	} //EditarArbitro;
+	
 	
 	private int ProcurarArbitroPorCodigo (int codigo) {
 		
@@ -170,6 +179,7 @@ public class Jogo {
 		
 	} //AdicionarGolo;
 	
+	
 	public void RemoverGolo (int codigo) {
 		
 		if (this.getEquipaVisitada().getCodigoIndentificador() == codigo)
@@ -179,14 +189,19 @@ public class Jogo {
 			this.goloEquipaVisitante -= 1;
 		
 	} //AdicionarGolo;
+
 	
-    // =======================================================
-    // ============== MÉTODOS COMPLEMENTARES =================
-    // =======================================================
+
+// ============== MÉTODOS COMPLEMENTARES =================
 
     // ----> toString()
-
-    // ----> equals()
+	@Override
+	public String toString() {
+		return "Jogo [codigoIndentificador=" + codigoIndentificador + ", equipaVisitada=" + equipaVisitada
+				+ ", equipaVisitante=" + equipaVisitante + ", goloEquipaVisitada=" + goloEquipaVisitada
+				+ ", goloEquipaVisitante=" + goloEquipaVisitante + ", data=" + data + ", jornada=" + jornada
+				+ ", arbitros=" + arbitros + "]";
+	}//Override toString;
 	
 } //Class Jogo;
 

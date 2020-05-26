@@ -1,14 +1,11 @@
 package com.as.futebol;
 
 import java.util.*;
+import com.as.futebol.Utilidade.*;
 
 public class Equipa {
-
-	public enum Escalao { Infantil, Iniciado, Juvenil, Outro }
 	
-    // =======================================================
-    // ===================== ATRIBUTOS =======================
-    // =======================================================
+// ===================== ATRIBUTOS =======================
 	
 	private int codigoIndentificador;
 	private String nome;
@@ -17,9 +14,7 @@ public class Equipa {
 	List<Jogador> jogadores = new ArrayList<Jogador>();
 	List<Treinador> treinadores = new ArrayList<Treinador>();
 
-    // =======================================================
-    // ============ ACESSORES e MODIFICADORES ================
-    // =======================================================
+// ============ ACESSORES e MODIFICADORES ================
 
 	public int getCodigoIndentificador() {
 		return codigoIndentificador;
@@ -53,10 +48,16 @@ public class Equipa {
 	} //getJogadores;
 	
 	public void setJogador(int index, Jogador jogador) {
+		if (ProcurarJogadorByNumeroCartao(jogador.getNumeroCartaoCidadao()) != -1)
+			throw new IllegalArgumentException("O Jogador '" + jogador.getNome() + "' ja foi adicionado a equipa '" + this.getNome() + "'!!!");
+		
 		this.jogadores.set(index, jogador);
 	} //setJogadores;
 	
 	public void addJogador(Jogador jogador) {
+		if (ProcurarJogadorByNumeroCartao(jogador.getNumeroCartaoCidadao()) != -1)
+			throw new IllegalArgumentException("O Jogador '" + jogador.getNome() + "' ja foi adicionado a equipa '" + this.getNome() + "'!!!");
+		
 		this.jogadores.add(jogador);
 	} //addJogadores;
 	
@@ -66,16 +67,20 @@ public class Equipa {
 	} //getTreinadores;
 	
 	public void setTreinador(int index, Treinador treinador) {
+		if (ProcurarTreinadorByNumeroCartao(treinador.getNumeroCartaoCidadao()) != -1)
+			throw new IllegalArgumentException("O Treinador '" + treinador.getNome() + "' ja foi adicionado a equipa '" + this.getNome() + "'!!!");
+		
 		this.treinadores.set(index, treinador);
 	} //setTreinadores;
 	
 	public void addTreinador(Treinador treinador) {
+		if (ProcurarTreinadorByNumeroCartao(treinador.getNumeroCartaoCidadao()) != -1)
+			throw new IllegalArgumentException("O Treinador '" + treinador.getNome() + "' ja foi adicionado a equipa '" + this.getNome() + "'!!!");
+		
 		this.treinadores.add( treinador);
 	} //addTreinadores;
 
-    // =======================================================
-    // =================== CONSTRUTORES ======================
-    // =======================================================
+// =================== CONSTRUTORES ======================
 
 	//Construtor sem parametros;
 	public Equipa () {
@@ -90,9 +95,7 @@ public class Equipa {
 		this.setEscalao(escalao);
 	} //Construtor Equipa;
 
-    // =======================================================
-    // =================== .COMPORTAMENTOS ===================
-    // =======================================================
+// =================== COMPORTAMENTOS ===================
 
 	public String MostrarInformacao () {
 		String resultado = "";
@@ -109,6 +112,8 @@ public class Equipa {
 	
 	public String MostrarJogadores () {
 		String resultado = "";
+		
+		this.jogadores.sort(null);
 		
 		for(Jogador j : jogadores) {
 			resultado += j.MostrarInformacao();
@@ -191,14 +196,16 @@ public class Equipa {
 		
 		return -1;
 	} //ProcurarTreinadorByNumeroCartao;
-	
-    // =======================================================
+
+
     // ============== MÉTODOS COMPLEMENTARES =================
-    // =======================================================
 
     // ----> toString()
-
-    // ----> equals()
+	@Override
+	public String toString() {
+		return "Equipa [codigoIndentificador=" + codigoIndentificador + ", nome=" + nome + ", escalao=" + escalao
+				+ ", jogadores=" + jogadores + ", treinadores=" + treinadores + "]";
+	}//Override toString;
 	
 } //Class Equipa;
 
