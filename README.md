@@ -1,5 +1,8 @@
-# Grupo-II---Futebol-Distrital
+# Grupo-II-Futebol-Distrital
 
-# Membros
+Membros
 - Serge Silva
 - Alex Pires
+
+Descrição
+
