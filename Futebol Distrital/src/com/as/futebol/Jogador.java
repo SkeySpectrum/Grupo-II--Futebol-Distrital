@@ -3,6 +3,14 @@ package com.as.futebol;
 import java.util.*;
 import com.as.futebol.Utilidade.*;
 
+/**
+ * @author Serge Silva
+ * @author Alex Pires
+ * 
+ * @version 1.0
+ * @since 2020-05-29
+*/
+
 public class Jogador extends Pessoa {
 
 // ===================== ATRIBUTOS =======================
@@ -13,28 +21,72 @@ public class Jogador extends Pessoa {
 
 // ============ ACESSORES e MODIFICADORES ================
 
+	/**
+	 * Este método tem o propósito de retornar o valor 
+	 * do atributo <b>numero</b> que não é acessivel a
+	 * outras classes.
+	*/
+	
 	public int getNumero() {
 		return numero;
 	} //getNumero;
 
+	/**
+	 * Este método tem o propósito de alterar o valor 
+	 * do atributo <b>numero</b> que não é acessivel a
+	 * outras classes ao receber um valor do tipo <b>int</b>.
+	*/
+	
 	public void setNumero(int numero) {
 		this.numero = numero;
 	} //setNumero;
 
 	
+	/**
+	 * Este método tem o propósito de retornar o valor 
+	 * do atributo <b>pePreferido</b> que não é acessivel a
+	 * outras classes.
+	 * 
+	 * @see com.as.futebol.Utilidade.PePreferido
+	*/
+	
 	public PePreferido getPePreferido() {
 		return pePreferido;
 	} //getPePreferido;
 
+	/**
+	 * Este método tem o propósito de alterar o valor 
+	 * do atributo <b>pePreferido</b> que não é acessivel a
+	 * outras classes ao receber um valor do tipo <b>PePreferido</b>.
+	 * 
+	 * @see com.as.futebol.Utilidade.PePreferido
+	*/
+	
 	public void setPePreferido(PePreferido pePreferido) {
 		this.pePreferido = pePreferido;
 	} //setPePreferido;
 
 	
+	/**
+	 * Este método tem o propósito de retornar o valor 
+	 * do atributo <b>posicao</b> que não é acessivel a
+	 * outras classes.
+	 * 
+	 * @see com.as.futebol.Utilidade.Posicao
+	*/
+	
 	public Posicao getPosicao() {
 		return posicao;
 	} //getPosicao;
 
+	/**
+	 * Este método tem o propósito de alterar o valor 
+	 * do atributo <b>posicao</b> que não é acessivel a
+	 * outras classes ao receber um valor do tipo <b>Posicao</b>.
+	 * 
+	 * @see com.as.futebol.Utilidade.Posicao
+	*/
+	
 	public void setPosicao(Posicao posicao) {
 		this.posicao = posicao;
 	} //setPosicao;
@@ -54,13 +106,20 @@ public class Jogador extends Pessoa {
 		super.setContacto(contacto);
 		super.setNumeroCartaoCidadao(numeroCartaoCidadao);
 		
-		this.pePreferido = pePreferido;
-		this.posicao = posicao;
-		this.numero = numero;
+		this.setPePreferido(pePreferido);
+		this.setPosicao(posicao);
+		this.setNumero(numero);
 	} //Construtor Jogador;
 
-// =================== .COMPORTAMENTOS ===================
+// =================== COMPORTAMENTOS ===================
 
+	/**
+	 * Mostra informações relativa a classe <b>Jogador</b>.
+	 * 
+	 * @deprecated 
+	 * @since 2020-05-28
+	*/
+	
 	public String MostrarInformacao () {
 		String resultado = "";
 		
@@ -87,7 +146,7 @@ public class Jogador extends Pessoa {
 				+ ", getNumeroCartaoCidadao()=" + getNumeroCartaoCidadao() + ", getNome()=" + getNome()
 				+ ", getDataNascimento()=" + getDataNascimento() + ", getContacto()=" + getContacto() + ", getEmail()="
 				+ getEmail() + "]";
-	}//Override toString;
+	} //Override toString;
 	
 } //Class Jogador;
 

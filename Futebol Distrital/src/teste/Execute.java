@@ -1,6 +1,15 @@
-package com.as.futebol;
+package teste;
 
 import java.util.*;
+
+import com.as.futebol.Arbitro;
+import com.as.futebol.Clube;
+import com.as.futebol.Competicao;
+import com.as.futebol.Equipa;
+import com.as.futebol.Habilitacao;
+import com.as.futebol.Jogador;
+import com.as.futebol.Jogo;
+import com.as.futebol.Treinador;
 import com.as.futebol.Utilidade.*;
 
 public class Execute {

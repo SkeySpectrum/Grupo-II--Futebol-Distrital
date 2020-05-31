@@ -2,21 +2,55 @@ package com.as.futebol;
 
 import java.util.*;
 
+/**
+ * @author Serge Silva
+ * @author Alex Pires
+ * 
+ * @version 1.0
+ * @since 2020-05-29
+*/
+
 public class Treinador extends Pessoa {
 
 // ===================== ATRIBUTOS =======================
 
-	private List<Habilitacao> habilitacao = new ArrayList<Habilitacao>();;
+	private List<Habilitacao> habilitacao = new ArrayList<Habilitacao>();
 
 // ============ ACESSORES e MODIFICADORES ================
 
+	/**
+	 * Este método tem o propósito de retornar uma lista 
+	 * do atributo <b>habilitacao</b> que não é acessivel a
+	 * outras classes.
+	 * 
+	 * @see com.as.futebol.Habilitacao
+	*/
+	
 	public List<Habilitacao> getHabilitacao() {
 		return habilitacao;
 	} //getHabilitacao;
 
+	/**
+	 * Este método tem o propósito de alterar o valor 
+	 * do atributo <b>habilitacao</b> que não é acessivel a
+	 * outras classes ao receber um valor do tipo <b>Habilitacao</b> 
+	 * numa dada posição.
+	 * 
+	 * @see com.as.futebol.Habilitacao
+	*/
+	
 	public void setHabilitacao(int index, Habilitacao habilitacao) {
 		this.habilitacao.set(index, habilitacao);
 	} //setHabilitacao;
+	
+	/**
+	 * Este método tem o propósito de alterar o valor 
+	 * do atributo <b>habilitacao</b> que não é acessivel a
+	 * outras classes ao receber um valor do tipo <b>Habilitacao</b>.
+	 * 
+	 * @see com.as.futebol.Habilitacao
+	*/
+	
 	
 	public void addHabilitacao(Habilitacao habilitacao) {
 		this.habilitacao.add(habilitacao);
@@ -39,7 +73,16 @@ public class Treinador extends Pessoa {
 		this.habilitacao.add(habilitacao);
 	} //Construtor Treinador;
 
-// =================== .COMPORTAMENTOS ===================
+// =================== COMPORTAMENTOS ===================
+	
+	/**
+	 * Mostra informações relativa a classe <b>Treinador</b>.
+	 * 
+	 * @deprecated 
+	 * @since 2020-05-28
+	*/
+	
+// =================== COMPORTAMENTOS ===================
 
 	public String MostrarInformacao () {
 		String result = "";
@@ -60,7 +103,6 @@ public class Treinador extends Pessoa {
 		return result;
 		
 	} //MostrarInformacao;
-
 
 // ============== MÉTODOS COMPLEMENTARES =================
 

@@ -1,5 +1,13 @@
 package com.as.futebol;
 
+/**
+ * @author Serge Silva
+ * @author Alex Pires
+ * 
+ * @version 1.0
+ * @since 2020-05-29
+*/
+
 public class Utilidade {
 
 // ============== Enum =================
